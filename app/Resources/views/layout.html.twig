@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+
+{% block nav %}
+<nav>
+    <ul>
+        <li>
+            <a href="{{  path('homepage') }}">home</a>
+        </li>
+        <li>
+            <a href="{{  path('telefoonlijst')}}">telefoonlijst</a>
+        </li>
+        <li>
+            <a href="{{  path('fos_user_security_login')}}">inloggen</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+{% block header %}
+    <header>
+        <figure>
+            {% image '@AppBundle/Resources/public/img/logo.png' %}
+            <img src="{{ asset_url }}" alt="logo" />
+            {% endimage %}
+
+        </figure>
+        <div>
+            <p><h1>Telefoonlijst <span>Mondriaan</span></h1></p>
+            <p>Zoek iemand in de organisatie! </p>
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="flash-notice">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+
+        </div>
+    </header>
+{% endblock %}
+{% block footer %}
+    <footer>
+        &copy;afdeling applicatieontwikkelaar Tinwerf 10, 2544 ED Den Haag. Telefoon:088 666 3600
+    </footer>
+{% endblock %}
+{%  block stylesheets %}
+    {% stylesheets '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+{% endblock %}
+

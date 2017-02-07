@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <section>
+        <figure>
+
+            {% image '@AppBundle/Resources/public/img/telefoonlijst.png' %}
+            <img src="{{ asset_url }}" alt="telefoonlijst" />
+            {% endimage %}
+
+        </figure>
+        <article>
+            <h2>Telefoonlijst</h2>
+            <p>
+                Welkom bij de telefoonlijst applicatie. Zoek hier iemand op binnen de organisatie!
+                Voor het aanpassen van je eigen telefoonnummer/email adres log je in met je eigen account.
+
+            </p>
+
+
+        </article><br>
+    </section>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% form_theme form 'form/fields.html.twig' %}
+
+{% extends 'layout.html.twig' %}
+{% block nav %}
+    <nav>
+        <ul>
+            <li>
+                <a href="{{  path('profiel') }}">home</a>
+            </li>
+            <li>
+                <a href="{{  path('edit')}}">beheer</a>
+            </li>
+            <li>
+                <a href="{{  path('fos_user_security_logout')}}">uitloggen</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block body %}
+<section>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    <table>
+        <caption>{{ title }}</caption>
+        <tbody>
+
+        {{ form_row(form.voornaam) }}
+
+
+        <tr>
+            <td>{{ form_label(form.achternaam) }}
+            {{ form_errors(form.achternaam) }}</td>
+            <td>{{ form_widget(form.achternaam) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.adres) }}
+            {{ form_errors(form.adres) }}</td>
+            <td>{{ form_widget(form.adres) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.plaats) }}
+                {{ form_errors(form.plaats) }}</td>
+            <td>{{ form_widget(form.plaats) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.postcode) }}
+                {{ form_errors(form.postcode) }}</td>
+            <td>{{ form_widget(form.postcode) }}</td>
+
+        </tr>
+
+        <tr>
+            <td>{{ form_label(form.telefoon) }}
+                {{ form_errors(form.telefoon) }}</td>
+            <td>{{ form_widget(form.telefoon) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.email) }}
+                {{ form_errors(form.email) }}</td>
+            <td>{{ form_widget(form.email) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.afdeling) }}
+                {{ form_errors(form.afdeling) }}</td>
+            <td>{{ form_widget(form.afdeling) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.opleidingen) }}
+                {{ form_errors(form.opleidingen) }}</td>
+            <td>{{ form_widget(form.opleidingen) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.foto) }}
+                {{ form_errors(form.foto) }}</td>
+            <td>{{ form_widget(form.foto) }}</td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{ form_row(form.save) }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+    {{ form_end(form) }}
+
+
+</section>
+{% endblock %}

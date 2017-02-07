@@ -1,0 +1,78 @@
+{% extends 'layout.html.twig' %}
+{% block nav %}
+    <nav>
+        <ul>
+            <li>
+                <a href="{{  path('profiel') }}">home</a>
+            </li>
+            <li>
+                <a href="{{  path('edit')}}">beheer</a>
+            </li>
+            <li>
+                <a href="{{  path('fos_user_security_logout')}}">uitloggen</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block body %}
+    <section>
+
+        <table>
+            <caption>Tonen van een contact</caption>
+            <tr>
+                <td>naam</td>
+                <td>
+                    {{ contact.naam }}
+                </td>
+            </tr>
+            <tr >
+                <td>adres</td>
+                <td>
+                    {{ contact.adres }}
+                </td>
+            </tr>
+            <tr>
+                <td>postcode</td>
+                <td>
+                    {{ contact.postcode }}
+                </td>
+            </tr>
+
+            <tr>
+                <td>plaats</td>
+                <td>
+                    {{ contact.plaats }}
+                </td>
+            </tr>
+            <tr>
+                <td>telefoon</td>
+                <td>
+                    {{ contact.telefoon }}
+                </td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td>
+                    {{ contact.email }}
+                </td>
+            </tr>
+            <tr>
+                <td>afdeling</td>
+                <td>
+                    {{ contact.afdeling.naam }}
+                </td>
+            </tr>
+            <tr>
+                <td>opleidingen</td>
+                <td>
+
+                    {% for opleiding in contact.opleidingen %}
+                        {{ opleiding.naam }}</br>
+                    {% endfor %}
+
+                </td>
+            </tr>
+        </table>
+
+    </section>
+{% endblock %}

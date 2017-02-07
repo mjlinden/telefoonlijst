@@ -1,0 +1,44 @@
+{% form_theme form 'form/fields.html.twig' %}
+{% extends 'layout.html.twig' %}
+{% block nav %}
+<nav>
+    <ul>
+        <li>
+            <a href="{{  path('beheer') }}">home</a>
+        </li>
+        <li>
+            <a href="{{  path('beheer')}}">beheer</a>
+        </li>
+        <li>
+            <a href="{{  path('fos_user_security_logout')}}">uitloggen</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block body %}
+<section>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    <table>
+        <caption>{{ title }}</caption>
+        <tbody>
+
+        {{ form_row(form.voornaam) }}
+
+        {{ form_row(form.achternaam) }}
+
+        {{ form_row(form.gebruikersnaam) }}
+
+        {{ form_row(form.wachtwoord) }}
+
+        {{ form_row(form.save) }}
+
+        </tbody>
+    </table>
+    {{ form_end(form) }}
+
+
+</section>
+{% endblock %}
+

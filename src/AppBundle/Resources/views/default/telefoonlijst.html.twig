@@ -1,0 +1,64 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <section>
+
+        <article>
+            <h2>contacten</h2>
+
+            <table>
+
+                <thead>
+                <tr>
+                    <td>nr</td>
+                    <td>naam</td>
+
+                    <td>telefoon</td>
+                    <td>email</td>
+                    <td>afdeling</td>
+                    <td width="50px">actie</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% set teller=1 %}
+                {% for c in contacten %}
+                <tr>
+                    <td>
+                        {{ teller }}
+                    </td>
+                    <td>
+                        {{ c.naam }}
+                    </td>
+
+                    <td>
+                        {{ c.telefoon }}
+                    </td>
+                    <td>
+                        {{ c.email }}
+                    </td>
+                    <td>
+                        {{ c.afdeling.naam | default('onbekend')}}
+                    </td>
+                    <td title="detail">
+
+
+                        <a href="{{  path('detail', {'id': c.id}) }}">
+                            {% image '@AppBundle/Resources/public/img/details.png' %}
+                                <img src="{{ asset_url }}" alt="detail" />
+                            {% endimage %}
+                        </a>
+
+
+
+                    </td>
+                </tr>
+                    {% set teller=teller+1 %}
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+
+        </article>
+    </section>
+{% endblock %}

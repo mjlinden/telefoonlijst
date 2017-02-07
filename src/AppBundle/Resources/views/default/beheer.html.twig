@@ -1,0 +1,85 @@
+{% extends 'layout.html.twig' %}
+{% block nav %}
+<nav>
+    <ul>
+        <li>
+            <a href="{{  path('beheer') }}">home</a>
+        </li>
+        <li>
+            <a href="{{  path('beheer')}}">beheer</a>
+        </li>
+        <li>
+            <a href="{{  path('fos_user_security_logout')}}">uitloggen</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+{% block body %}
+    <section>
+
+        <article>
+            <h2>contacten</h2>
+
+            <table>
+
+                <thead>
+                <tr>
+                    <td>nr</td>
+                    <td>user</td>
+                    <td>naam</td>
+                    <td>rol</td>
+                    <td width="50px">actie</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% set teller=1 %}
+                {% for u in users %}
+                <tr>
+                    <td>
+                        {{ teller }}
+                    </td>
+                    <td>
+                        {{ u.username }}
+                    </td>
+
+                    <td>
+                        {{ u.contact.voornaam }} {{ u.contact.achternaam }}
+                    </td>
+
+                    <td>
+                        {{ u.roles[0] }}
+                    </td>
+                    <td title="detail">
+
+
+                        <a href="{{  path('reset', {'id': u.id}) }}">
+                            {% image '@AppBundle/Resources/public/img/bewerk.png' %}
+                                <img src="{{ asset_url }}" alt="reset" />
+                            {% endimage %}
+                        </a>
+
+                        <a href="{{ path('delete', {'id': u.id}) }}">
+                            {% image '@AppBundle/Resources/public/img/verwijder.png' %}
+                            <img src="{{ asset_url }}" alt="verwijder contact" />
+                            {% endimage %}
+                        </a>
+
+                    </td>
+                </tr>
+                    {% set teller=teller+1 %}
+                {% endfor %}
+                <tr><td>
+                    <a href="{{ path('add') }}">
+                        {% image '@AppBundle/Resources/public/img/toevoegen.png' %}
+                        <img src="{{ asset_url }}" alt="voeg contact toe" />
+                        {% endimage %}
+                    </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </article>
+    </section>
+{% endblock %}
