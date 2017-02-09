@@ -27,6 +27,7 @@ class BezoekerController extends Controller
         return $this->render('AppBundle:default:index.html.twig');
     }
 
+
     /**
      * @Route("/telefoonlijst", name="telefoonlijst")
      */
