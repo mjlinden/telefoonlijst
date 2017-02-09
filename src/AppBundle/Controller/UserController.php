@@ -36,7 +36,6 @@ class UserController extends Controller
         $form = $this->createForm(ContactType::class, $contact);
         $form->add('save', SubmitType::class, array('label'=>"aanpassen"));
 
-
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
